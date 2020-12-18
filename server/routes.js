@@ -4,6 +4,11 @@ var router = require('express').Router();
 //Connect controller methods to their corresponding routes
 router.get('/messages', controller.messages.get);
 
+// controller = {
+//   messages: {
+//     get: function() {}
+//   }
+// }
 router.post('/messages', controller.messages.post);
 
 router.get('/users', controller.users.get);

@@ -3,22 +3,21 @@ CREATE DATABASE IF NOT EXISTS chat;
 USE chat;
 
 
-CREATE TABLE rooms (
+CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VarCHAR(255)
+  username VarCHAR(255) NOT NULL
 );
-
 
 
 CREATE TABLE messages (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  room_id INT,
+  user_id INT,
   message_text VARCHAR(255) NOT NULL,
   created_at DATETIME,
-  user_name VARCHAR(255),
+  room_name VARCHAR(255),
   -- PRIMARY KEY (id , room_id),
-  FOREIGN KEY (room_id)
-    REFERENCES rooms (id)
+  FOREIGN KEY (user_id)
+    REFERENCES users (id)
 );
 
 /* Create other tables and define schemas for them here! */
